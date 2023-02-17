@@ -5,6 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: url("../src/assets/back8.jpg")  no-repeat center top/cover  ;
+  /* opacity: 0.7; */
+  /* background-color:#656565;  */
 }
 
 code {
