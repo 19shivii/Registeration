@@ -9,10 +9,16 @@ function Register() {
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async(event) => {
     event.preventDefault();
     console.log(`Name: ${name}\nYear: ${year}\nDomain: ${option1}\nAdmission No: ${admissionNo}\nPhone: ${phone}\nEmail: ${email}`);
-    // add code to submit form data to backend here
+    const data=await fetch("http://localhost:5000/",{
+      method:'POST',
+      headers:{'Content-type':'Application/json'},
+      body:{
+
+      }
+    })
   }
 
   return (
@@ -55,7 +61,7 @@ function Register() {
           <label htmlFor="phoneNo">Phone No:</label>
           <input type="text" id="phoneNo" name="phoneNo" value={phone} onChange={(event) => setPhone(event.target.value)} required />
           
-          <button type="submit">Register</button>
+          <button type="submit" >Register</button>
         </form>
     </div>
     </div>
