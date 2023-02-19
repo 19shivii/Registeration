@@ -12,13 +12,21 @@ function Register() {
   const handleSubmit = async(event) => {
     event.preventDefault();
     console.log(`Name: ${name}\nYear: ${year}\nDomain: ${option1}\nAdmission No: ${admissionNo}\nPhone: ${phone}\nEmail: ${email}`);
-    const data=await fetch("http://localhost:5000/",{
-      method:'POST',
-      headers:{'Content-type':'Application/json'},
-      body:{
-
-      }
-    })
+    const add=await fetch("http://localhost:5000/",{
+            method:'POST',
+            headers:{'Content-Type': 'application/json'},
+            body:JSON.stringify({
+              
+              name:name,
+              email:email,
+              year:year,
+              domain:option1,
+              admission_no:admissionNo,
+              phone_no:phone
+            })
+        }).then(()=>{
+            console.log(add)
+        })
   }
 
   return (
@@ -37,17 +45,17 @@ function Register() {
           <input type="text" id="name" name="name" value={name} onChange={(event) => setName(event.target.value)}  required />
           
           <label htmlFor="email">Email:</label>
-          <input type="email" value={email} id="email" name="email" required />
+          <input type="text" id="email" name="email" value={email} onChange={(event) => setEmail(event.target.value)} required />
           
           <label htmlFor="year">Year:</label>
-          <select id="year" value={year} name="year" type="checkbox" checked={option1} onChange={(event) => setOption1(event.target.checked)} required>
+          <select id="year" value={year} name="year"  onChange={(event) => setYear(event.target.value)} required>
             <option value="">-- Select Year --</option>
             <option value="first">First Year</option>
             <option value="second">Second Year</option>
           </select>
           
           <label htmlFor="options">Domain:</label>
-          <select id="options" name="options" value={option1}  type="checkbox" checked={option1} onChange={(event) => setOption1(event.target.checked)} required>
+          <select id="options" name="options" value={option1}  onChange={(event) => setOption1(event.target.value)} required>
             <option value="">-- Select Option --</option>
             <option value="option1">Technical</option>
             <option value="option2">Editorial</option>
