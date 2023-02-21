@@ -8,10 +8,10 @@ function Register() {
   const [admissionNo, setAdmissionNo] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
-
+  const[resume,setResume]= useState('');
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(`Name: ${name}\nYear: ${year}\nDomain: ${option1}\nAdmission No: ${admissionNo}\nPhone: ${phone}\nEmail: ${email}`);
+    console.log(`Name: ${name}\nYear: ${year}\nDomain: ${option1}\nAdmission No: ${admissionNo}\nPhone: ${phone}\nEmail: ${email}\nResume:${file}`);
     // add code to submit form data to backend here
   }
 
@@ -54,6 +54,9 @@ function Register() {
           
           <label htmlFor="phoneNo">Phone No:</label>
           <input type="text" id="phoneNo" name="phoneNo" value={phone} onChange={(event) => setPhone(event.target.value)} required />
+
+         <label for="myfile">Resume:</label>
+  <input type="file" id="myfile" name="myfile" value={file} onChange={(event) => setResume(event.target.value)} required   multiple><br><br>
           
           <button type="submit">Register</button>
         </form>
