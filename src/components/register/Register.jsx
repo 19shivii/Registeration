@@ -11,7 +11,7 @@ function Register() {
 
   const handleSubmit = async(event) => {
     event.preventDefault();
-    console.log(`Name: ${name}\nYear: ${year}\nDomain: ${option1}\nAdmission No: ${admissionNo}\nPhone: ${phone}\nEmail: ${email}`);
+    console.log(`Name: ${name}\nYear: ${year}\nDomain: ${option1}\nAdmission No: ${admissionNo}\nPhone: ${phone}\nEmail: ${email} \nResume:${file}`);
     const add=await fetch("http://localhost:5000/",{
             method:'POST',
             headers:{'Content-Type': 'application/json'},
@@ -34,6 +34,8 @@ function Register() {
     <div className="left-j">
         <div className="content">
         <span>Our dedicated team is here to assist you every step of the way.</span>
+         <span>Join the Group : </span>
+        <span><a href="https://chat.whatsapp.com/FCDKmZxclWoIJETuHU2ft3 ">Join Us</a></span>
         </div>
 
 
@@ -68,6 +70,10 @@ function Register() {
           
           <label htmlFor="phoneNo">Phone No:</label>
           <input type="text" id="phoneNo" name="phoneNo" value={phone} onChange={(event) => setPhone(event.target.value)} required />
+            
+             <label for="myfile">Resume:</label>
+  <input type="file" id="myfile" name="myfile" value={file} onChange={(event) => setResume(event.target.value)} required   multiple/>
+
           
           <button type="submit" >Register</button>
         </form>
